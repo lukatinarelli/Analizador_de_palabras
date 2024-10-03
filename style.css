@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0b1721;
+}
+.form{
+    width: 100%;
+    height: 50px;
+    max-width: 400px;
+    position: relative;
+	overflow-x: clip;
+	overflow-y: visible;
+}
+.form input{
+    width: 100%;
+    height: 50px;
+    background: none;
+    color: #fff;
+    padding-top: 20px;
+    border: none;
+    outline: 0px;
+}
+.form .lbl-palabra{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 1px solid #c7c7c7;
+}
+.form .lbl-palabra:after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 100px;
+    border-bottom: 3px solid #2ecece;
+    transform: translateX(-100%);
+    transition: all 0.3s ease;
+}
+.text-pal{
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    transition: all 0.3s ease;
+    color: #fff;
+}
+.form input:focus + .lbl-palabra .text-pal, .form input:valid + .lbl-palabra .text-pal{
+    transform: translateY(-150%);
+    font-size: 14px;
+    color: #2ecece;
+}
+.form input:focus + .lbl-palabra::after, .form input:valid + .lbl-palabra::after{
+    transform: translateX(0%);
+}
+.form label{
+    color: #fff;
+    margin-bottom: 0px;
+    display: block;
+}
+.form .texto{
+	margin-top: 20px;
+}
+.form .select{
+    width: 100%;
+    height: 40px;
+    color: #fff;
+    background-color: #1d2d3e;
+    border: 1px solid #c7c7c7;
+	margin-top: 10px;
+    margin-bottom: 20px;
+    padding: 5px;
+    border-radius: 10px;
+}
+.form input[type="submit"]{
+    width: 100%;
+    height: 40px;
+    background-color: #2ecece;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+    padding: 10px;    /* CAMBIAR  REDONDEAR*/  /* CAMBIAR  REDONDEAR*/
+}
+.form input[type="submit"]:hover{
+    background-color: #25b2b2;
+}
+.cuadrado {
+    width: 500px; 
+    height: 300px;
+    background: #132636;
+    position: absolute;
+    justify-content: center;
+    transform: translate(0%, 25%);
+    border-radius: 25px;
+    align-items: center;
+}

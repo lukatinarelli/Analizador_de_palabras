@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Analizador de palabras</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="cuadrado"></div>
+        <form id="form" class="form">
+            <input type="text" 
+                id="palabra" 
+                name="palabra"
+                pattern="[A-Za-zÁ-Úá-úÀ-Ùà-ùÄ-Üä-ü·]+" 
+                title="Solo se aceptan letras"
+                required>
+            <label class="lbl-palabra">
+                <span class="text-pal">
+                    Introduce una palabra
+                </span>
+            </label>
+            <label class="texto">Elige un idioma:</label>
+            <select class="select" name="lan" id="lan">
+                <option>Castellano</option>
+                <option>Catalán</option>
+            </select>
+            <input type="submit" class="botón" value="Enviar">
+        </form>
+        <script src="script.js" type="text/javascript"></script>
+    </body>
+</html>

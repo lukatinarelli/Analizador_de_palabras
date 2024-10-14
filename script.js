@@ -255,8 +255,10 @@ form.addEventListener("submit", () => {
                 
         }else{
             if(vocales.includes(valor[valor.length - 1]) || valor[valor.length - 1] == 'n' || valor[valor.length - 1] == 's'){
+                vol = 2
                 document.write('La palabra es llana <br/>');
             }else{
+                vol = 1
                 document.write('La palabra es aguda <br/>');
             }
         }
@@ -284,8 +286,10 @@ form.addEventListener("submit", () => {
             }
         }else{
             if(vocales.includes(valor[valor.length - 1]) || ['as','es','is','os','us'].includes(valor.substring(valor.length - 2, valor.length))){
+                vol = 2
                 document.write('La paraula és plana <br/>')
             }else{
+                vol = 1
                 document.write('La paraula és aguda <br/>')
             }
         }
@@ -350,10 +354,32 @@ form.addEventListener("submit", () => {
                 silabas.push(valor[i])
             }
         }
-        if('<p style="color:yellow">amarillo</p>');
+
+        silabas = (silabas.join('')).split("|")
 
 
-        document.write('Separación de silabas: ' + silabas.join(''))
+        document.write('<p>');
+
+        for(i = 0; i < silabas.length; i++){
+
+            if(i + vol == silabas.length){
+                document.write('<span style="color: red;">' + silabas[i] + '</span> ')
+
+                if(vol != 1){
+                    document.write('<span style="color: black;">' + '|' + '</span> ')
+                }
+                
+            }else{
+                document.write('<span style="color: black;">' + silabas[i] + '</span> ')
+
+                if(i + 1 != silabas.length){
+                    document.write('<span style="color: black;">' + ' |' + '</span> ')
+                }
+            
+            }
+        }
+        document.write('</p>')
+        
     }else{
         for(var i = 0; i < valor.length; i++){
             if(valor[i] + valor[i+1] == 'tx' && i == valor.length - 2){
@@ -384,7 +410,7 @@ form.addEventListener("submit", () => {
                 silabas.push(valor[i])
             }
         }
-        while (silabas.indexOf('·|') > 0){
+        while(silabas.indexOf('·|') > 0){
             silabas.splice(silabas.indexOf('·|'), 1);
         }
         document.write('Separació de síl·labas: ' + silabas.join(''))

@@ -350,6 +350,9 @@ form.addEventListener("submit", () => {
                 silabas.push(valor[i])
             }
         }
+        if('<p style="color:yellow">amarillo</p>');
+
+
         document.write('Separación de silabas: ' + silabas.join(''))
     }else{
         for(var i = 0; i < valor.length; i++){
@@ -384,6 +387,6 @@ form.addEventListener("submit", () => {
         while (silabas.indexOf('·|') > 0){
             silabas.splice(silabas.indexOf('·|'), 1);
         }
-        document.write(' Separació de síl·labas: ' + silabas.join(''))
+        document.write('Separació de síl·labas: ' + silabas.join(''))
     }
 });

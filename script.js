@@ -127,6 +127,40 @@ form.addEventListener("submit", () => {
         }
     };
 
+
+
+    inc = []
+	fnl = []
+	
+	for(var i = 0; i < (valorSinAcentos.length / 2) - 0.5; i++){
+		inc.push(valorSinAcentos[i])
+		fnl.push(valorSinAcentos[valorSinAcentos.length - 1 - i])
+	}
+	
+	if(inc.join() == fnl.join()){
+		if (lan == "Castellano"){
+			document.write("La palabra es un palíndromo: ")
+            for(var i = 0; i < valor.length; i++){
+                if(i == 0){
+                    document.write(valor[0].fontcolor("red"))
+                }else if(i != valor.length - 1){
+                    document.write(valor[i])
+                }else{
+                    document.write(valor[valor.length - 1].fontcolor("purple") + "<br/>")
+                }
+            }
+		}
+	}else{
+        document.write("La palabra al revés se escribe: ")
+        for(var i = valor.length; i != 1; i--){
+            document.write(valor[i - 1])
+        }
+        document.write(valor[0].toUpperCase() + "<br/>")
+    }
+
+
+
+
     var abiertastd = ['a','e','o','á','é','ó','à','è','ò']
     var abiertas = ['a','e','o']
     var abiertasconacento = ['á','é','ó']
@@ -228,104 +262,6 @@ form.addEventListener("submit", () => {
     }
 
 
-    var vol = 0
-
-    if(lan == 'Castellano'){
-        if(acento == 'Si'){
-            for(var i = valor.length - 1; i >= 0; i--){
-                if(vocales.includes(valor[i])){
-                    vol++
-                    if(acentos.includes(valor[i])){
-                        if(vol == 1){
-                            document.write('La palabra es aguda <br/>')
-                            break
-                        }else if(vol == 2){
-                            document.write('La palabra es llana <br/>')
-                            break
-                        }else if(vol == 3 && diptongo == 'Si'){
-                            document.write('La palabra es llana <br/>')
-                            break
-                        }else{
-                            document.write('La palabra es esdrújula <br/>')
-                            break
-                        }
-                    }
-                }
-            }
-                
-        }else{
-            if(vocales.includes(valor[valor.length - 1]) || valor[valor.length - 1] == 'n' || valor[valor.length - 1] == 's'){
-                vol = 2
-                document.write('La palabra es llana <br/>');
-            }else{
-                vol = 1
-                document.write('La palabra es aguda <br/>');
-            }
-        }
-    }else{
-        if(acento == 'Si'){
-            for(var i = valor.length - 1; i >= 0; i--){
-                if(vocales.includes(valor[i])){
-                    vol++
-                    if(acentos.includes(valor[i])){
-                        if(vol == 1){
-                            document.write('La paraula és aguda <br/>')
-                            break
-                        }else if(vol == 2){
-                            document.write('La paraula és plana <br/>')
-                            break
-                        }else if(vol == 3 && diptongo == 'Si'){
-                            document.write('La paraula és plana <br/>')
-                            break
-                        }else{
-                            document.write('La paraula és esdrúixola <br/>')
-                            break
-                        }
-                    }
-                }
-            }
-        }else{
-            if(vocales.includes(valor[valor.length - 1]) || ['as','es','is','os','us'].includes(valor.substring(valor.length - 2, valor.length))){
-                vol = 2
-                document.write('La paraula és plana <br/>')
-            }else{
-                vol = 1
-                document.write('La paraula és aguda <br/>')
-            }
-        }
-    }
-	
-	
-	inc = []
-	fnl = []
-	
-	for(var i = 0; i < (valorSinAcentos.length / 2) - 0.5; i++){
-		inc.push(valorSinAcentos[i])
-		fnl.push(valorSinAcentos[valorSinAcentos.length - 1 - i])
-	}
-	
-	if(inc.join() == fnl.join()){
-		if (lan == "Castellano"){
-			document.write("La palabra es un palíndromo: ")
-            for(var i = 0; i < valor.length; i++){
-                if(i == 0){
-                    document.write(valor[0].fontcolor("red"))
-                }else if(i != valor.length - 1){
-                    document.write(valor[i])
-                }else{
-                    document.write(valor[valor.length - 1].fontcolor("purple") + "<br/>")
-                }
-            }
-		}
-	}else{
-        document.write("La palabra al revés se escribe: ")
-        for(var i = valor.length; i != 1; i--){
-            document.write(valor[i - 1])
-        }
-        document.write(valor[0].toUpperCase() + "<br/>")
-    }
-	
-	
 
     nrs = ['rr','ll','br','cr','dr','gr','fr','kr','tr','bl','cl','gl','fl','kl','pr','pl','ch']
     con = ['br','bl','cn','cr','cl','dr','fr','fl','gr','gl','pr','pl','tr','ch','ll','ny']
@@ -336,7 +272,7 @@ form.addEventListener("submit", () => {
         silabas.push('trans|')
     }
 
-    if(lan == 'Castellano'){
+    if(lan == "Castellano"){
         for(var i = 0; i < valor.length; i++){
             if(nrs.includes(valor[i] + valor[i+1])){
                 silabas.push('|' + valor[i])
@@ -356,30 +292,6 @@ form.addEventListener("submit", () => {
         }
 
         silabas = (silabas.join('')).split("|")
-
-
-        document.write('<p>');
-
-        for(i = 0; i < silabas.length; i++){
-
-            if(i + vol == silabas.length){
-                document.write('<span style="color: red;">' + silabas[i] + '</span> ')
-
-                if(vol != 1){
-                    document.write('<span style="color: black;">' + '|' + '</span> ')
-                }
-                
-            }else{
-                document.write('<span style="color: black;">' + silabas[i] + '</span> ')
-
-                if(i + 1 != silabas.length){
-                    document.write('<span style="color: black;">' + ' |' + '</span> ')
-                }
-            
-            }
-        }
-        document.write('</p>')
-        
     }else{
         for(var i = 0; i < valor.length; i++){
             if(valor[i] + valor[i+1] == 'tx' && i == valor.length - 2){
@@ -413,6 +325,127 @@ form.addEventListener("submit", () => {
         while(silabas.indexOf('·|') > 0){
             silabas.splice(silabas.indexOf('·|'), 1);
         }
-        document.write('Separació de síl·labas: ' + silabas.join(''))
+
+        silabas = (silabas.join('')).split("|")
+    }
+
+
+    var vol = 0
+
+    if(lan == 'Castellano'){
+        if(acento == 'Si'){
+            for(var i = silabas.length - 1; i >= 0; i--){
+                vol++
+
+                if(acentos.some(vocal => silabas[i].includes(vocal))){
+                    if(vol == 1){
+                        document.write('La palabra es aguda <br/>')
+                        break
+                    }else if(vol == 2){
+                        document.write('La palabra es llana <br/>')
+                        break
+                    }else if(vol == 3){
+                        document.write('La palabra es esdrújula <br/>')
+                        break
+                    }else{
+                        document.write('La palabra es sobresdrújula <br/>')
+                        break
+                    }
+                }
+                
+            }
+                
+        }else{
+            if(vocales.includes(valor[valor.length - 1]) || valor[valor.length - 1] == 'n' || valor[valor.length - 1] == 's'){
+                vol = 2
+                document.write('La palabra es llana <br/>');
+            }else{
+                vol = 1
+                document.write('La palabra es aguda <br/>');
+            }
+        }
+    }else{
+        if(acento == 'Si'){
+            for(var i = silabas.length - 1; i >= 0; i--){
+                vol++
+
+                if(acentos.some(vocal => silabas[i].includes(vocal))){
+                    if(vol == 1){
+                        document.write('La paraula és aguda <br/>')
+                        break
+                    }else if(vol == 2){
+                        document.write('La paraula és plana <br/>')
+                        break
+                    }else if(vol == 3){
+                        document.write('La paraula és esdrúixola <br/>')
+                        break
+                    }else{
+                        document.write('La paraula és sobresdrúixola <br/>')
+                        break
+                    }
+                }
+                
+            }
+        }else{
+            if(vocales.includes(valor[valor.length - 1]) || ['as','es','is','os','us'].includes(valor.substring(valor.length - 2, valor.length))){
+                vol = 2
+                document.write('La paraula és plana <br/>')
+            }else{
+                vol = 1
+                document.write('La paraula és aguda <br/>')
+            }
+        }
+    }
+	    
+
+    if(lan == 'Castellano'){
+        document.write('<p>');
+
+        document.write('Separación de sílabas: ');
+
+        for(i = 0; i < silabas.length; i++){
+
+            if(i + vol == silabas.length){
+                document.write('<span style="color: red;">' + silabas[i] + '</span> ')
+
+                if(vol != 1){
+                    document.write('<span style="color: black;">' + '|' + '</span> ')
+                }
+                
+            }else{
+                document.write('<span style="color: black;">' + silabas[i] + '</span> ')
+
+                if(i + 1 != silabas.length){
+                    document.write('<span style="color: black;">' + ' |' + '</span> ')
+                }
+            
+            }
+        }
+        document.write('</p>')
+        
+    }else{
+        document.write('<p>');
+
+        document.write('Separació de síl·labes: ');
+
+        for(i = 0; i < silabas.length; i++){
+
+            if(i + vol == silabas.length){
+                document.write('<span style="color: red;">' + silabas[i] + '</span> ')
+
+                if(vol != 1){
+                    document.write('<span style="color: black;">' + '|' + '</span> ')
+                }
+                
+            }else{
+                document.write('<span style="color: black;">' + silabas[i] + '</span> ')
+
+                if(i + 1 != silabas.length){
+                    document.write('<span style="color: black;">' + ' |' + '</span> ')
+                }
+            
+            }
+        }
+        document.write('</p>')
     }
 });

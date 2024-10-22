@@ -27,6 +27,10 @@
 
         <p id="diptongo"></p>
         <p id="hiato"></p>
+        <p id="triptongo"></p>
+
+        <p id="acento"></p>
+        <p id="dieresis"></p>
 
 
         <script>
@@ -92,8 +96,13 @@
             const polindromo = localStorage.getItem('polindromo');
             document.getElementById('polindromo').innerHTML = polindromo;
 
-            // SOLUCIONAR COLORES
-            // SOLUCIONAR COLORES
+            
+            const diptongo = localStorage.getItem('diptongo');
+            const hiato = localStorage.getItem('hiato');
+            const triptongo = localStorage.getItem('triptongo');
+            document.getElementById('diptongo').innerText = diptongo;
+            document.getElementById('hiato').innerText = hiato;
+            document.getElementById('triptongo').innerText = triptongo;
 
 
         </script>

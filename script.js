@@ -141,8 +141,6 @@ document.getElementById('form').addEventListener('submit', function(event) {
 
 
     
-
-    /*
     var abiertastd = ['a','e','o','á','é','ó','à','è','ò']
     var abiertas = ['a','e','o']
     var abiertasconacento = ['á','é','ó']
@@ -180,9 +178,9 @@ document.getElementById('form').addEventListener('submit', function(event) {
                 hiato = 'Si'
             }
         }
-        document.write(diptongo + ' tiene diptongo <br/>')
-        document.write(hiato + ' tiene hiato <br/>')
-        document.write(triptongo + ' tiene triptongo <br/>')
+        localStorage.setItem('diptongo', `${diptongo} tiene diptongo`)
+        localStorage.setItem('hiato', `${hiato} tiene hiato`)
+        localStorage.setItem('triptongo', `${triptongo} tiene triptongo`)
     }else{
         for(var i = 0; i < valor.length; i++){
             if(vocales.includes(valor[i-1]) && cerads.includes(valor[i]) && abiertas.includes(valor[i+1]) && cerads.includes(valor[i+2])){
@@ -212,12 +210,12 @@ document.getElementById('form').addEventListener('submit', function(event) {
                 hiato = 'Si'
             }
         }
-        document.write(diptongo + ' té diftongo <br/>')
-        document.write(hiato + ' té hiat <br/>')
-        document.write(triptongo + ' té triftongo <br/>')
+        localStorage.setItem('diptongo', `${diptongo} té diftongo`)
+        localStorage.setItem('hiato', `${hiato} té hiat`)
+        localStorage.setItem('triptongo', `${triptongo} té triftongo`)
     }
 
-
+    /*
     acentos = ['á','é','í','ó','ú','à','è','ì','ò','ù']
     dieresis = ['ä','ë','ï','ö','ü']
     acento = 'No'

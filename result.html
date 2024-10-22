@@ -2,14 +2,31 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Quitar esto-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 
+            
+            
+            Quitar esto
+        
+        
+        
+        -->
         <title>Resultado</title>
         <link rel="icon" href="iconoSJO.png">
+        <link rel="stylesheet" href="stylee.css">
     </head>
     <body>
         <h1 id="palabra"></h1>
 
         <p id="cantidad_letras"></p>
+        <p id="cuantas_vocales_consonantes"></p>
+
+        <p id="letras_no_repetidas"></p>
+        <p id="letras_repetidas"></p>
+
+        <p id="polindromo"></p>
+
+        <p id="diptongo"></p>
+        <p id="hiato"></p>
 
 
         <script>
@@ -20,17 +37,64 @@
 
             const idioma = localStorage.getItem('idioma');
 
-            document.write(idioma)
+            
 
             if(idioma ==  'Castellano'){
-                document.getElementById('cantidad_letras').innerText = `La palabra tiene ${valor.length} letras.`;
+                document.getElementById('cantidad_letras').innerText = `La palabra tiene ${palabra.length} letras.`;
             }else{
-                document.getElementById('cantidad_letras').innerText = `La paraula té ${valor.length} lletres.`;
+                document.getElementById('cantidad_letras').innerText = `La paraula té ${palabra.length} lletres.`;
             }
             
 
-            //const cantidad_letras = localStorage.getItem('cantidad_letras');
-            //document.getElementById('cantidad_letras').innerText = cantidad_letras;
+            const vocales = localStorage.getItem('vocales');
+            const consonantes = localStorage.getItem('consonantes');
+
+            var mensaje = '';
+
+            if(idioma ==  'Castellano'){
+                if(vocales == 1){
+                    mensaje += `Tiene ${vocales} vocal y `;
+                }else{
+                    mensaje += `Tiene ${vocales} vocales y `;
+                }
+            
+                if(consonantes == 1){
+                    mensaje += `${vocales} consonate.`;
+                }else{
+                    mensaje += `${vocales} consonates.`;
+                }
+            
+                document.getElementById('cuantas_vocales_consonantes').innerText = mensaje;
+            }else{
+                if(vocales == 1){
+                    mensaje += `Té ${vocales} vocal y `;
+                }else{
+                    mensaje += `Té ${vocales} vocals y `;
+                }
+            
+                if(consonantes == 1){
+                    mensaje += `${vocales} consonat.`;
+                }else{
+                    mensaje += `${vocales} consonats.`;
+                }
+            
+                document.getElementById('cuantas_vocales_consonantes').innerText = mensaje;
+            }
+
+
+            const letras_no_repetidas = localStorage.getItem('letras_no_repetidas');
+            const letras_repetidas = localStorage.getItem('letras_repetidas');
+
+            document.getElementById('letras_no_repetidas').innerText = letras_no_repetidas;
+            document.getElementById('letras_repetidas').innerText = letras_repetidas;
+
+
+            const polindromo = localStorage.getItem('polindromo');
+            document.getElementById('polindromo').innerHTML = polindromo;
+
+            // SOLUCIONAR COLORES
+            // SOLUCIONAR COLORES
+
 
         </script>
     </body>

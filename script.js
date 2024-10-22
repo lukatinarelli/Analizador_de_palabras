@@ -30,14 +30,10 @@ document.getElementById('form').addEventListener('submit', function(event) {
 
     
     localStorage.setItem('palabra', valor.charAt(0).toUpperCase() + valor.slice(1));
-    window.location.href = 'result.html';
-
     localStorage.setItem('idioma', lan);
-    window.location.href = 'result.html';
 
 
-
-    /*
+    
     var vocales = ['a','e','i','o','u','á','é','í','ó','ú','à','è','ì','ò','ù','ï','ü'];
     var vocaless = 0
     var consonantess = 0
@@ -53,34 +49,16 @@ document.getElementById('form').addEventListener('submit', function(event) {
         }
     };
 
-    if(lan == 'Castellano'){
-        if(vocaless == 1){
-            document.write('Tiene ' + vocaless + ' vocal y ');
-        }else{
-            document.write('Tiene ' + vocaless + ' vocales y ');
-        }
 
-        if(consonantess == 1){
-            document.write(consonantess + ' consonate <br/>');
-        }else{
-            document.write(consonantess + ' consonates <br/>');
-        }
-    }else{
-        if(vocaless == 1){
-            document.write('Té ' + vocaless + ' vocal y ');
-        }else{
-            document.write('Té ' + vocaless + ' vocals y ');
-        }
 
-        if(consonantess == 1){
-            document.write(consonantess + ' consonate <br/>');
-        }else{
-            document.write(consonantess + ' consonats <br/>');
-        }
-    }
+    localStorage.setItem('vocales', vocaless);
+    localStorage.setItem('consonantes', consonantess);
+    
+
+    
         
 
-
+    
     var sildif = []
     var silla = []
 
@@ -92,17 +70,17 @@ document.getElementById('form').addEventListener('submit', function(event) {
                 silla.push(valorSinAcentos[i] + ' --> ' + cuantasVecesAparece(valorSinAcentos, valorSinAcentos[i]) + ' veces')
             }
         }
-
+        
         if(sildif.length == 0){
-            document.write('Se repiten todas las letra <br/>');
+            localStorage.setItem('letras_no_repetidas', 'Se repiten todas las letra');
         }else{
-            document.write('Letras que no se repiten: ' + sildif.length + ' (' + sildif + ') <br/>')
+            localStorage.setItem('letras_no_repetidas', `Letras que no se repiten: ${sildif.length}  (${sildif})`)
         }
         
         if(silla.length == 0){
-            document.write('No se repiten ninguna letra <br/>');
+            localStorage.setItem('letras_repetidas', 'No se repiten ninguna letra');
         }else{
-            document.write('Letras que se repiten: ' + silla.length + ' (' + silla + ') <br/>')
+            localStorage.setItem('letras_no_repetidas', `Letras que se repiten: ${silla.length} (${silla})`)
         }
         
     }else{
@@ -113,24 +91,25 @@ document.getElementById('form').addEventListener('submit', function(event) {
                 silla.push(valorSinAcentos[i] + ' --> ' + cuantasVecesAparece(valorSinAcentos, valorSinAcentos[i]) + ' vegades')
             }
         }
-
         if(sildif.length == 0){
-            document.write('Es repeteixen totes les lletra <br/>');
+            localStorage.setItem('letras_no_repetidas', 'Es repeteixen totes les lletra');
         }else{
-            document.write('Lletres que no es repeteixen: ' + sildif.length + ' (' + sildif + ') <br/>')
+            localStorage.setItem('letras_no_repetidas', `Lletres que no es repeteixen: ${sildif.length}  (${sildif})`)
         }
         
         if(silla.length == 0){
-            document.write('No es repeteixen cap llettra <br/>');
+            localStorage.setItem('letras_repetidas', 'No es repeteixen cap llettra');
         }else{
-            document.write('Lletres que es repeteixen: ' + silla.length + ' (' + silla + ') <br/>')
+            localStorage.setItem('letras_no_repetidas', `Lletres que es repeteixen: ${silla.length} (${silla})`)
         }
     };
 
 
+    
 
     inc = []
 	fnl = []
+    var mensaje = '';
 	
 	for(var i = 0; i < (valorSinAcentos.length / 2) - 0.5; i++){
 		inc.push(valorSinAcentos[i])
@@ -139,28 +118,31 @@ document.getElementById('form').addEventListener('submit', function(event) {
 	
 	if(inc.join() == fnl.join()){
 		if (lan == "Castellano"){
-			document.write("La palabra es un palíndromo: ")
+			mensaje += "La palabra es un palíndromo: "
             for(var i = 0; i < valor.length; i++){
                 if(i == 0){
-                    document.write(valor[0].fontcolor("red"))
+                    mensaje += valor[0].fontcolor("red")
                 }else if(i != valor.length - 1){
-                    document.write(valor[i])
+                    mensaje += valor[i]
                 }else{
-                    document.write(valor[valor.length - 1].fontcolor("purple") + "<br/>")
+                    mensaje += valor[valor.length - 1].fontcolor("purple")
                 }
             }
 		}
 	}else{
-        document.write("La palabra al revés se escribe: ")
+        mensaje += "La palabra al revés se escribe: "
         for(var i = valor.length; i != 1; i--){
-            document.write(valor[i - 1])
+            mensaje += valor[i - 1]
         }
-        document.write(valor[0].toUpperCase() + "<br/>")
+        mensaje += valor[0].toUpperCase()
     }
 
+    localStorage.setItem('polindromo', mensaje)
 
 
+    
 
+    /*
     var abiertastd = ['a','e','o','á','é','ó','à','è','ò']
     var abiertas = ['a','e','o']
     var abiertasconacento = ['á','é','ó']
@@ -448,4 +430,5 @@ document.getElementById('form').addEventListener('submit', function(event) {
         }
         document.write('</p>')
     }*/
+    window.location.href = 'result.html';
 });

@@ -1,9 +1,9 @@
-var form = document.getElementById("form")
-
-form.addEventListener("submit", () => {
+document.getElementById('form').addEventListener('submit', function(event) {
+    event.preventDefault();
 
     var input = document.getElementById("palabra");
     var valor = input.value.toLowerCase();
+    
 
 
     var pos
@@ -28,16 +28,16 @@ form.addEventListener("submit", () => {
     var language = document.getElementById('lan');
     var lan = language.value;
 
-    document.write(valor.charAt(0).toUpperCase() + valor.slice(1) + '<br/><br/>');
-
-
-    if(lan ==  'Castellano'){
-        document.write('La palabra tiene ' + valor.length + ' letras <br/>');
-    }else{
-        document.write('La paraula té ' + valor.length + ' lletres. <br/>')
-    }
-
     
+    localStorage.setItem('palabra', valor.charAt(0).toUpperCase() + valor.slice(1));
+    window.location.href = 'result.html';
+
+    localStorage.setItem('idioma', lan);
+    window.location.href = 'result.html';
+
+
+
+    /*
     var vocales = ['a','e','i','o','u','á','é','í','ó','ú','à','è','ì','ò','ù','ï','ü'];
     var vocaless = 0
     var consonantess = 0
@@ -447,5 +447,5 @@ form.addEventListener("submit", () => {
             }
         }
         document.write('</p>')
-    }
+    }*/
 });

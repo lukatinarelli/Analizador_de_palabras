@@ -1,13 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resultado</title>
-</head>
-<body>
-    <p>
-        
-    </p>
-</body>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Quitar esto-->
+        <title>Resultado</title>
+        <link rel="icon" href="iconoSJO.png">
+    </head>
+    <body>
+        <h1 id="palabra"></h1>
+
+        <p id="cantidad_letras"></p>
+
+
+        <script>
+            // Obtiene la cantidad de letras desde el almacenamiento local
+            const palabra = localStorage.getItem('palabra');
+            // Muestra la cantidad de letras en la página
+            document.getElementById('palabra').innerText = palabra;
+
+            const idioma = localStorage.getItem('idioma');
+
+            document.write(idioma)
+
+            if(idioma ==  'Castellano'){
+                document.getElementById('cantidad_letras').innerText = `La palabra tiene ${valor.length} letras.`;
+            }else{
+                document.getElementById('cantidad_letras').innerText = `La paraula té ${valor.length} lletres.`;
+            }
+            
+
+            //const cantidad_letras = localStorage.getItem('cantidad_letras');
+            //document.getElementById('cantidad_letras').innerText = cantidad_letras;
+
+        </script>
+    </body>
 </html>

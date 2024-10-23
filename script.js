@@ -215,7 +215,7 @@ document.getElementById('form').addEventListener('submit', function(event) {
         localStorage.setItem('triptongo', `${triptongo} té triftongo`)
     }
 
-    /*
+    
     acentos = ['á','é','í','ó','ú','à','è','ì','ò','ù']
     dieresis = ['ä','ë','ï','ö','ü']
     acento = 'No'
@@ -234,15 +234,15 @@ document.getElementById('form').addEventListener('submit', function(event) {
 
 
     if (lan == "Castellano"){
-        document.write(acento + ' tiene acento <br/>')
-        document.write(dieresi + ' tiene diéresis <br/>')
+        localStorage.setItem('acento', `${acento} tiene acento`)
+        localStorage.setItem('dieresis', `${dieresi} tiene diéresis `)
     } else {
-        document.write(acento + ' té accent <br/>')
-        document.write(dieresi + ' té dièresi <br/>')
+        localStorage.setItem('acento', `${acento} té accent`)
+        localStorage.setItem('dieresis', `${dieresi} té dièresi`)
     }
 
 
-
+    
     nrs = ['rr','ll','br','cr','dr','gr','fr','kr','tr','bl','cl','gl','fl','kl','pr','pl','ch']
     con = ['br','bl','cn','cr','cl','dr','fr','fl','gr','gl','pr','pl','tr','ch','ll','ny']
     silabas = []
@@ -319,16 +319,16 @@ document.getElementById('form').addEventListener('submit', function(event) {
 
                 if(acentos.some(vocal => silabas[i].includes(vocal))){
                     if(vol == 1){
-                        document.write('La palabra es aguda <br/>')
+                        localStorage.setItem('acentuacion', 'La palabra es aguda')
                         break
                     }else if(vol == 2){
-                        document.write('La palabra es llana <br/>')
+                        localStorage.setItem('acentuacion', 'La palabra es llana')
                         break
                     }else if(vol == 3){
-                        document.write('La palabra es esdrújula <br/>')
+                        localStorage.setItem('acentuacion', 'La palabra es esdrújula')
                         break
                     }else{
-                        document.write('La palabra es sobresdrújula <br/>')
+                        localStorage.setItem('acentuacion', 'La palabra es sobresdrújula')
                         break
                     }
                 }
@@ -338,10 +338,10 @@ document.getElementById('form').addEventListener('submit', function(event) {
         }else{
             if(vocales.includes(valor[valor.length - 1]) || valor[valor.length - 1] == 'n' || valor[valor.length - 1] == 's'){
                 vol = 2
-                document.write('La palabra es llana <br/>');
+                localStorage.setItem('acentuacion', 'La palabra es llana')
             }else{
                 vol = 1
-                document.write('La palabra es aguda <br/>');
+                localStorage.setItem('acentuacion', 'La palabra es aguda')
             }
         }
     }else{
@@ -351,16 +351,16 @@ document.getElementById('form').addEventListener('submit', function(event) {
 
                 if(acentos.some(vocal => silabas[i].includes(vocal))){
                     if(vol == 1){
-                        document.write('La paraula és aguda <br/>')
+                        localStorage.setItem('acentuacion', 'La paraula és aguda')
                         break
                     }else if(vol == 2){
-                        document.write('La paraula és plana <br/>')
+                        localStorage.setItem('acentuacion', 'La paraula és plana')
                         break
                     }else if(vol == 3){
-                        document.write('La paraula és esdrúixola <br/>')
+                        localStorage.setItem('acentuacion', 'La paraula és esdrúixola')
                         break
                     }else{
-                        document.write('La paraula és sobresdrúixola <br/>')
+                        localStorage.setItem('acentuacion', 'La paraula és sobresdrúixola')
                         break
                     }
                 }
@@ -369,64 +369,61 @@ document.getElementById('form').addEventListener('submit', function(event) {
         }else{
             if(vocales.includes(valor[valor.length - 1]) || ['as','es','is','os','us'].includes(valor.substring(valor.length - 2, valor.length))){
                 vol = 2
-                document.write('La paraula és plana <br/>')
+                localStorage.setItem('acentuacion', 'La paraula és plana')
             }else{
                 vol = 1
-                document.write('La paraula és aguda <br/>')
+                localStorage.setItem('acentuacion', 'LLa paraula és aguda')
             }
         }
     }
-	    
-
+	
+    var mensaje = ''
+    
     if(lan == 'Castellano'){
-        document.write('<p>');
-
-        document.write('Separación de sílabas: ');
+        mensaje += 'Separación de sílabas: '
 
         for(i = 0; i < silabas.length; i++){
 
             if(i + vol == silabas.length){
-                document.write('<span style="color: red;">' + silabas[i] + '</span> ')
+                mensaje += `<span style="color: red;"> ${silabas[i]} </span> `
 
                 if(vol != 1){
-                    document.write('<span style="color: black;">' + '|' + '</span> ')
+                    mensaje += '<span style="color: black;"> | </span> '
                 }
                 
             }else{
-                document.write('<span style="color: black;">' + silabas[i] + '</span> ')
+                mensaje += `<span style="color: black;"> ${silabas[i]} </span> `
 
                 if(i + 1 != silabas.length){
-                    document.write('<span style="color: black;">' + ' |' + '</span> ')
+                    mensaje += '<span style="color: black;"> | </span> '
                 }
             
             }
         }
-        document.write('</p>')
+        
         
     }else{
-        document.write('<p>');
-
-        document.write('Separació de síl·labes: ');
+        mensaje += 'Separació de síl·labes: '
 
         for(i = 0; i < silabas.length; i++){
 
             if(i + vol == silabas.length){
-                document.write('<span style="color: red;">' + silabas[i] + '</span> ')
+                mensaje += `<span style="color: red;"> ${silabas[i]} </span> `
 
                 if(vol != 1){
-                    document.write('<span style="color: black;">' + '|' + '</span> ')
+                    mensaje += '<span style="color: black;"> | </span> '
                 }
                 
             }else{
-                document.write('<span style="color: black;">' + silabas[i] + '</span> ')
+                mensaje += `<span style="color: black;"> ${silabas[i]} </span> `
 
                 if(i + 1 != silabas.length){
-                    document.write('<span style="color: black;">' + ' |' + '</span> ')
+                    mensaje += '<span style="color: black;"> | </span> '
                 }
             
             }
         }
-        document.write('</p>')
-    }*/
+    }
+    localStorage.setItem('separacion_silabas', mensaje)
     window.location.href = 'result.html';
 });

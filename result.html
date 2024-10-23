@@ -2,7 +2,9 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        
+        <!-- 
             
             
             Quitar esto
@@ -10,6 +12,7 @@
         
         
         -->
+
         <title>Resultado</title>
         <link rel="icon" href="iconoSJO.png">
         <link rel="stylesheet" href="stylee.css">
@@ -32,7 +35,9 @@
         <p id="acento"></p>
         <p id="dieresis"></p>
 
-        <p id="sílabas"></p>
+        <p id="acentuacion"></p>
+
+        <p id="separacion_silabas"></p>
 
 
         <script>
@@ -107,6 +112,18 @@
             document.getElementById('triptongo').innerText = triptongo;
 
 
+            const acento = localStorage.getItem('acento');
+            const dieresis = localStorage.getItem('dieresis');
+            document.getElementById('acento').innerText = acento;
+            document.getElementById('dieresis').innerText = dieresis;
+
+
+            const acentuacion = localStorage.getItem('acentuacion');
+            document.getElementById('acentuacion').innerText = acentuacion;
+
+
+            const separacion_silabas = localStorage.getItem('separacion_silabas');
+            document.getElementById('separacion_silabas').innerHTML = separacion_silabas;
         </script>
     </body>
 </html>

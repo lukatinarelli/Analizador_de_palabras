@@ -18,27 +18,34 @@
         <link rel="stylesheet" href="stylee.css">
     </head>
     <body>
-        <h1 id="palabra"></h1>
+        <div class="cuadrado_result"></div>
+        <div class="resultado">
+            <h1 id="palabra"></h1>
 
-        <p id="cantidad_letras"></p>
-        <p id="cuantas_vocales_consonantes"></p>
+            <p id="cantidad_letras"></p>
+            <p id="cuantas_vocales_consonantes"></p>
 
-        <p id="letras_no_repetidas"></p>
-        <p id="letras_repetidas"></p>
+            <p id="letras_no_repetidas"></p>
+            <p id="letras_repetidas"></p>
 
-        <p id="polindromo"></p>
+            <p id="polindromo"></p>
 
-        <p id="diptongo"></p>
-        <p id="hiato"></p>
-        <p id="triptongo"></p>
+            <p id="diptongo"></p>
+            <p id="hiato"></p>
+            <p id="triptongo"></p>
 
-        <p id="acento"></p>
-        <p id="dieresis"></p>
+            <p id="acento"></p>
+            <p id="dieresis"></p>
 
-        <p id="acentuacion"></p>
+            <p id="acentuacion"></p>
 
-        <p id="separacion_silabas"></p>
+            <p id="separacion_silabas"></p>
 
+            <div class="separador"></div>
+
+            <input type="submit" id="btn" value="Volver">
+        </div>
+        
 
         <script>
             // Obtiene la cantidad de letras desde el almacenamiento local
@@ -124,6 +131,11 @@
 
             const separacion_silabas = localStorage.getItem('separacion_silabas');
             document.getElementById('separacion_silabas').innerHTML = separacion_silabas;
+
+
+            document.getElementById('btn').addEventListener('click', function(){
+                window.location.href = 'index.html';
+            });
         </script>
     </body>
 </html>

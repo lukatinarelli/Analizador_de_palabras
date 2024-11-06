@@ -80,7 +80,7 @@ document.getElementById('form').addEventListener('submit', function(event) {
         if(silla.length == 0){
             localStorage.setItem('letras_repetidas', 'No se repiten ninguna letra');
         }else{
-            localStorage.setItem('letras_no_repetidas', `Letras que se repiten: ${silla.length} (${silla})`)
+            localStorage.setItem('letras_repetidas', `Letras que se repiten: ${silla.length} (${silla})`)
         }
         
     }else{
@@ -385,17 +385,17 @@ document.getElementById('form').addEventListener('submit', function(event) {
         for(i = 0; i < silabas.length; i++){
 
             if(i + vol == silabas.length){
-                mensaje += `<span style="color: red;"> ${silabas[i]} </span> `
+                mensaje += `<span style="color: red;" title="Sílaba tónica"> ${silabas[i]} </span> `
 
                 if(vol != 1){
-                    mensaje += '<span style="color: black;"> | </span> '
+                    mensaje += '<span style="color: white;"> | </span> '
                 }
                 
             }else{
-                mensaje += `<span style="color: black;"> ${silabas[i]} </span> `
+                mensaje += `<span style="color: white;"> ${silabas[i]} </span> `
 
                 if(i + 1 != silabas.length){
-                    mensaje += '<span style="color: black;"> | </span> '
+                    mensaje += '<span style="color: white;"> | </span> '
                 }
             
             }
@@ -408,17 +408,17 @@ document.getElementById('form').addEventListener('submit', function(event) {
         for(i = 0; i < silabas.length; i++){
 
             if(i + vol == silabas.length){
-                mensaje += `<span style="color: red;"> ${silabas[i]} </span> `
+                mensaje += `<span style="color: red;" title="Síl·laba tònica"> ${silabas[i]} </span> `
 
                 if(vol != 1){
-                    mensaje += '<span style="color: black;"> | </span> '
+                    mensaje += '<span style="color: white;"> | </span> '
                 }
                 
             }else{
-                mensaje += `<span style="color: black;"> ${silabas[i]} </span> `
+                mensaje += `<span style="color: white;"> ${silabas[i]} </span> `
 
                 if(i + 1 != silabas.length){
-                    mensaje += '<span style="color: black;"> | </span> '
+                    mensaje += '<span style="color: white;"> | </span> '
                 }
             
             }

@@ -1,3 +1,78 @@
-p{
-    margin: 5px;
+/* Variables CSS para facilidad de mantenimiento */
+:root {
+    --color-principal: #0b1721;
+    --color-secundario: #132636;
+    --color-texto: #ffffff;
+    --color-titulo: red;
+    --color-acento: #00bcd4; /* Ejemplo de color de acento para botones o detalles */
+    --font-size-h1: 2.5rem;
+    --font-size-p: 1.25rem;
+    --padding-base: 25px;
+    --border-radius: 25px;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background: var(--color-principal);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.resultado {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: var(--padding-base);
+}
+
+h1 {
+    text-align: center;
+    font-size: var(--font-size-h1);
+    color: var(--color-titulo);
+    margin-bottom: var(--padding-base);
+    font-weight: bold; /* Aumentar el peso para mayor visibilidad */
+}
+
+p {
+    text-align: center;
+    font-size: var(--font-size-p);
+    color: var(--color-texto);
+    line-height: 1.5; /* Mejorar la legibilidad */
+    margin: 0;
+    padding: 5px;
+}
+
+.cuadrado_result {
+    width: 100%;
+    max-width: 500px;
+    height: 700px;
+    background: var(--color-secundario);
+    position: absolute;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para agregar profundidad */
+}
+
+.separador {
+    height: 20px;
+}
+
+#btn {
+    width: 100%;
+    height: 40px;
+    background-color: #2ecece;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+    padding: 10px;
+}
+
+#btn:hover {
+    background-color: #25b2b2;
 }

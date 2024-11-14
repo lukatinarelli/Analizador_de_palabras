@@ -3,16 +3,6 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-        
-        <!-- 
-            
-            
-            Quitar esto
-        
-        
-        
-        -->
-
         <title>Resultado</title>
         <link rel="icon" href="iconoSJO.png">
         <link rel="stylesheet" href="stylee.css">
@@ -21,119 +11,111 @@
         <div class="cuadrado_result"></div>
         <div class="resultado">
             <h1 id="palabra"></h1>
-
-            <p id="cantidad_letras"></p>
-            <p id="cuantas_vocales_consonantes"></p>
-
-            <p id="letras_no_repetidas"></p>
-            <p id="letras_repetidas"></p>
-
-            <p id="polindromo"></p>
-
-            <p id="diptongo"></p>
-            <p id="hiato"></p>
-            <p id="triptongo"></p>
-
-            <p id="acento"></p>
-            <p id="dieresis"></p>
-
-            <p id="acentuacion"></p>
-
-            <p id="separacion_silabas"></p>
+            
+            <!-- Tabla de Resultados -->
+            <table>
+                <tr>
+                    <th>Descripción</th>
+                    <th>Resultado</th>
+                </tr>
+                <tr>
+                    <td>Cantidad de letras</td>
+                    <td id="cantidad_letras"></td>
+                </tr>
+                <tr>
+                    <td>Vocales y consonantes</td>
+                    <td id="cuantas_vocales_consonantes"></td>
+                </tr>
+                <tr>
+                    <td>Letras no repetidas</td>
+                    <td id="letras_no_repetidas"></td>
+                </tr>
+                <tr>
+                    <td>Letras repetidas</td>
+                    <td id="letras_repetidas"></td>
+                </tr>
+                <tr>
+                    <td>Palíndromo</td>
+                    <td id="polindromo"></td>
+                </tr>
+                <tr>
+                    <td>Diptongo</td>
+                    <td id="diptongo"></td>
+                </tr>
+                <tr>
+                    <td>Hiato</td>
+                    <td id="hiato"></td>
+                </tr>
+                <tr>
+                    <td>Triptongo</td>
+                    <td id="triptongo"></td>
+                </tr>
+                <tr>
+                    <td>Acento</td>
+                    <td id="acento"></td>
+                </tr>
+                <tr>
+                    <td>Diéresis</td>
+                    <td id="dieresis"></td>
+                </tr>
+                <tr>
+                    <td>Tipo de acentuación</td>
+                    <td id="acentuacion"></td>
+                </tr>
+                <tr>
+                    <td>Separación en sílabas</td>
+                    <td id="separacion_silabas"></td>
+                </tr>
+            </table>
 
             <div class="separador"></div>
-
             <input type="submit" id="btn" value="Volver">
         </div>
         
-
         <script>
-            // Obtiene la cantidad de letras desde el almacenamiento local
+            // Asignación de valores y lógica de idioma
             const palabra = localStorage.getItem('palabra');
-            // Muestra la cantidad de letras en la página
-            document.getElementById('palabra').innerText = palabra;
-
             const idioma = localStorage.getItem('idioma');
-
+            document.getElementById('palabra').innerText = palabra;
             
-
-            if(idioma ==  'Castellano'){
-                document.getElementById('cantidad_letras').innerText = `La palabra tiene ${palabra.length} letras.`;
-            }else{
-                document.getElementById('cantidad_letras').innerText = `La paraula té ${palabra.length} lletres.`;
-            }
-            
-
             const vocales = localStorage.getItem('vocales');
             const consonantes = localStorage.getItem('consonantes');
-
-            var mensaje = '';
-
-            if(idioma ==  'Castellano'){
-                if(vocales == 1){
-                    mensaje += `Tiene ${vocales} vocal y `;
-                }else{
-                    mensaje += `Tiene ${vocales} vocales y `;
-                }
-            
-                if(consonantes == 1){
-                    mensaje += `${vocales} consonate.`;
-                }else{
-                    mensaje += `${vocales} consonates.`;
-                }
-            
-                document.getElementById('cuantas_vocales_consonantes').innerText = mensaje;
-            }else{
-                if(vocales == 1){
-                    mensaje += `Té ${vocales} vocal y `;
-                }else{
-                    mensaje += `Té ${vocales} vocals y `;
-                }
-            
-                if(consonantes == 1){
-                    mensaje += `${vocales} consonat.`;
-                }else{
-                    mensaje += `${vocales} consonats.`;
-                }
-            
-                document.getElementById('cuantas_vocales_consonantes').innerText = mensaje;
-            }
-
-
             const letras_no_repetidas = localStorage.getItem('letras_no_repetidas');
             const letras_repetidas = localStorage.getItem('letras_repetidas');
-
-            document.getElementById('letras_no_repetidas').innerText = letras_no_repetidas;
-            document.getElementById('letras_repetidas').innerText = letras_repetidas;
-
-
             const polindromo = localStorage.getItem('polindromo');
-            document.getElementById('polindromo').innerHTML = polindromo;
-
-            
             const diptongo = localStorage.getItem('diptongo');
             const hiato = localStorage.getItem('hiato');
             const triptongo = localStorage.getItem('triptongo');
+            const acento = localStorage.getItem('acento');
+            const dieresis = localStorage.getItem('dieresis');
+            const acentuacion = localStorage.getItem('acentuacion');
+            const separacion_silabas = localStorage.getItem('separacion_silabas');
+
+            // Texto en función del idioma seleccionado
+            if (idioma === 'Castellano') {
+                document.getElementById('cantidad_letras').innerText = `La palabra tiene ${palabra.length} letras.`;
+                document.getElementById('cuantas_vocales_consonantes').innerText = 
+                    `Tiene ${vocales} vocal${vocales != 1 ? 'es' : ''} y ${consonantes} consonante${consonantes != 1 ? 's' : ''}.`;
+            } else {
+                document.getElementById('cantidad_letras').innerText = `La paraula té ${palabra.length} lletres.`;
+                document.getElementById('cuantas_vocales_consonantes').innerText = 
+                    `Té ${vocales} vocal${vocales != 1 ? 's' : ''} i ${consonantes} consonant${consonantes != 1 ? 's' : ''}.`;
+            }
+
+            // Asignación de resultados a cada celda de la tabla
+            document.getElementById('letras_no_repetidas').innerText = letras_no_repetidas;
+            document.getElementById('letras_repetidas').innerText = letras_repetidas;
+            document.getElementById('polindromo').innerText = polindromo;
             document.getElementById('diptongo').innerText = diptongo;
             document.getElementById('hiato').innerText = hiato;
             document.getElementById('triptongo').innerText = triptongo;
-
-
-            const acento = localStorage.getItem('acento');
-            const dieresis = localStorage.getItem('dieresis');
             document.getElementById('acento').innerText = acento;
             document.getElementById('dieresis').innerText = dieresis;
-
-
-            const acentuacion = localStorage.getItem('acentuacion');
             document.getElementById('acentuacion').innerText = acentuacion;
-
-
-            const separacion_silabas = localStorage.getItem('separacion_silabas');
             document.getElementById('separacion_silabas').innerHTML = separacion_silabas;
 
-
-            document.getElementById('btn').addEventListener('click', function(){
+            // Función de volver a la página principal
+            document.getElementById('btn').addEventListener('click', function() {
                 window.location.href = 'index.html';
             });
         </script>

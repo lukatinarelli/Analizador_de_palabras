@@ -1,17 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Open Sans', sans-serif;
+    margin: 0;  /* Cambiar el margen */
+    padding: 0; /* Cambia el "padding" */
+    box-sizing: border-box;  /* Cambia el modelo de caja para incluir el padding y el borde dentro de las dimensiones totales del elemento */
+    font-family: 'Open Sans', sans-serif;  /* Cambiar fuente para el texto */
 }
 body{
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #0b1721;
+    width: 100%;  /* Cambiar el ancho */
+    height: 100vh;  /* Cambiar el alto */
+    display: flex;  /* Permite la alineación flexible de sus elementos hijos */
+    justify-content: center;  /* Centra los elementos hijos horizontalmente en el contenedor flex */
+    align-items: center;  /* Centra los elementos hijos verticalmente en el contenedor flex */
+    background: #0b1721;  /* Cambiar el fondo de la web */
 }
 .form{
     width: 100%;

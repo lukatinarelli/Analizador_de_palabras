@@ -1,69 +1,69 @@
-<!DOCTYPE html>
+<!DOCTYPE html> <!-- Página secundaria que imprime la palabra analizada -->
 <html lang="es">
     <head>
-        <meta charset="UTF-8">
+        <meta charset="UTF-8"> <!-- Codificación para la web -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-        <title>Resultado</title>
-        <link rel="icon" href="iconoSJO.png">
+        <title>Resultado</title>  <!-- Nombre para la web -->
+        <link rel="icon" href="iconoSJO.png">  <!-- Añadir icono a la web -->
         <link rel="stylesheet" href="stylee.css">
     </head>
     <body>
         <div class="cuadrado_result"></div>
         <div class="resultado">
-            <h1 id="palabra"></h1>
+            <h1 id="palabra"></h1> <!-- Título con la palabra escogida por el usuario -->
             
-            <!-- Tabla de Resultados -->
+            <!-- Tabla con los resultados -->
             <table>
                 <tr>
-                    <th>Descripción</th>
-                    <th>Resultado</th>
+                    <th id="Descripción">Descripción</th>
+                    <th id="Resultado">Resultado</th>
                 </tr>
                 <tr>
-                    <td>Cantidad de letras</td>
+                    <td id="Cantidad_de_letras">Cantidad de letras</td>
                     <td id="cantidad_letras"></td>
                 </tr>
                 <tr>
-                    <td>Vocales y consonantes</td>
+                    <td id="Vocales_y_consonantes">Vocales y consonantes</td>
                     <td id="cuantas_vocales_consonantes"></td>
                 </tr>
                 <tr>
-                    <td>Letras no repetidas</td>
+                    <td id="Letras_no_repetidas">Letras no repetidas</td>
                     <td id="letras_no_repetidas"></td>
                 </tr>
                 <tr>
-                    <td>Letras repetidas</td>
+                    <td id="Letras_repetidas">Letras repetidas</td>
                     <td id="letras_repetidas"></td>
                 </tr>
                 <tr>
-                    <td>Palíndromo</td>
+                    <td id="Palíndromo">Palíndromo</td>
                     <td id="polindromo"></td>
                 </tr>
                 <tr>
-                    <td>Diptongo</td>
+                    <td id="Diptongo">Diptongo</td>
                     <td id="diptongo"></td>
                 </tr>
                 <tr>
-                    <td>Hiato</td>
+                    <td id="Hiato">Hiato</td>
                     <td id="hiato"></td>
                 </tr>
                 <tr>
-                    <td>Triptongo</td>
+                    <td id="Triptongo">Triptongo</td>
                     <td id="triptongo"></td>
                 </tr>
                 <tr>
-                    <td>Acento</td>
+                    <td id="Acento">Acento</td>
                     <td id="acento"></td>
                 </tr>
                 <tr>
-                    <td>Diéresis</td>
+                    <td id="Diéresis">Diéresis</td>
                     <td id="dieresis"></td>
                 </tr>
                 <tr>
-                    <td>Tipo de acentuación</td>
+                    <td id="Tipo_de_acentuación">Tipo de acentuación</td>
                     <td id="acentuacion"></td>
                 </tr>
                 <tr>
-                    <td>Separación en sílabas</td>
+                    <td id="Separación_en_sílabas">Separación en sílabas</td>
                     <td id="separacion_silabas"></td>
                 </tr>
             </table>
@@ -73,12 +73,13 @@
         </div>
         
         <script>
-            // Asignación de valores y lógica de idioma
+            // Asignación de los valores escogidos por el user (palabra y idioma)
             const palabra = localStorage.getItem('palabra');
             const idioma = localStorage.getItem('idioma');
-            document.getElementById('palabra').innerText = palabra;
+            document.getElementById('palabra').innerText = palabra; // Selecciona el elemento HTML con el identificador (ID) "palabra" y establece su contenido de texto (innerText) al valor de la variable palabra
             
-            const vocales = localStorage.getItem('vocales');
+            // Recupera los valores almacenados en el localStorage y los asignamos a variables
+            const vocales = localStorage.getItem('vocales'); 
             const consonantes = localStorage.getItem('consonantes');
             const letras_no_repetidas = localStorage.getItem('letras_no_repetidas');
             const letras_repetidas = localStorage.getItem('letras_repetidas');
@@ -90,6 +91,25 @@
             const dieresis = localStorage.getItem('dieresis');
             const acentuacion = localStorage.getItem('acentuacion');
             const separacion_silabas = localStorage.getItem('separacion_silabas');
+            
+            // Si el usuario a escogido el catalán como idioma, traducir la tabla
+            if (idioma === 'Catalán') {
+                document.getElementById('Descripción').innerText = "Descripció";
+                document.getElementById('Resultado').innerText = "Resultat";
+                document.getElementById('Cantidad_de_letras').innerText = "Quantitat de lletres";
+                document.getElementById('Vocales_y_consonantes').innerText = "Vocals i consonants";
+                document.getElementById('Letras_no_repetidas').innerText = "Lletres no repetides";
+                document.getElementById('Letras_repetidas').innerText = "Lletras repetides";
+                document.getElementById('Palíndromo').innerText = "Palíndrom";
+                document.getElementById('Diptongo').innerText = "Diftong";
+                document.getElementById('Hiato').innerText = "Hiat";
+                document.getElementById('Triptongo').innerText = "Triftong";
+                document.getElementById('Acento').innerText = "Accent";
+                document.getElementById('Diéresis').innerText = "Dièresi";
+                document.getElementById('Tipo_de_acentuación').innerText = "Tipus d'accentuació";
+                document.getElementById('Separación_en_sílabas').innerText = "Separació en síl·labes";
+            }
+
 
             // Texto en función del idioma seleccionado
             if (idioma === 'Castellano') {

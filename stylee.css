@@ -95,6 +95,7 @@ tr:hover td {
     position: absolute;
     border-radius: var(--border-radius);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transform: translateY(3%);
 }
 
 .separador {

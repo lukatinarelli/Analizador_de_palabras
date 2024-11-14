@@ -108,3 +108,30 @@ body{
     border-radius: 25px;
     align-items: center;
 }
+
+.footer {
+    position: fixed;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    color: #c7c7c7;
+}
+
+.footer-link {
+    color: #2ecece;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: #25b2b2;
+}
+
+.header-image {
+    width: 100px;         /* Ajusta el tamaño de la imagen */
+    height: auto;
+    display: block;
+    margin: 0 auto 20px;  /* Centra la imagen y añade espacio debajo */
+    border-radius: 50%;   /* Hace la imagen circular */
+}
